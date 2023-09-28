@@ -7,7 +7,8 @@
 
 
 body {
-  font-family: 'Comfortaa', cursive; 
+  font-family: 'Comfortaa', cursive;
+  background-color: rgb(30, 3, 53);
   color: white;
  
   /* overflow-x: hidden; */
@@ -20,7 +21,7 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-   background-color: rgb(30, 3, 53);
+  position: relative;
 }
 
 .container {
@@ -36,6 +37,7 @@ header {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
+  
 }
 
 #header {
@@ -45,50 +47,13 @@ header {
   align-content: center;
   flex-wrap: wrap;
   min-height: 100px;
-  padding: 30px 20px 0;
+  padding: 30px 20px 20px;
 }
 
 #header h2 {
   font-size: 2rem;
 }
 
-.form-number {
-  width: 400px; 
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
-  align-content: center;
-}
-
-.pict-number__container {
-    display: flex;
-    flex-direction: column;
-  align-items: center; 
-  justify-content: center; 
-  align-content: center;
-}
-
-.form-number input {
-    border-radius: 25px;
-    width: 200px;
-    padding: 8px 12px;
-    text-align: center;
-    transition: all 0.30s ease-in-out;
-  border: 1px solid #DDDDDD; 
-   border-radius: 25px;
-  outline: none;
-  font-size: 1rem;
-  gap: 1rem;
-  margin: 0 auto;
-  
-}
-
-.error-message {
-    height: 20px;   
-    margin-top: .5rem;
-    width: 400px;
-    text-align: center;
-}
 
 #search-form {
   position: relative;
@@ -96,6 +61,8 @@ header {
  display: flex;
  align-items: center;
 }
+
+
 
 
 #search-form input {
@@ -107,19 +74,24 @@ header {
   outline: none;
   transition: all 0.30s ease-in-out;
   border: 1px solid #DDDDDD;
+  cursor: text;
+  padding-left: 40px;
+  color: rgb(30, 3, 53);
+  font-weight: 600;
 }
 
-input:focus {
+#search-form input:focus {
   box-shadow: 0 0 5px rgb(29, 174, 49);
   border: 1px solid rgb(29, 174, 49);
 }
 
+
 #search-form i {
-  color: black;
+  color: rgb(30, 3, 53);
   position: absolute;
   cursor: pointer;
   top: 30%;
-  right: 4%;
+  left: 4%;
   transition: 1s;
 }
 
@@ -127,33 +99,45 @@ input:focus {
   color: rgb(29, 174, 49);
 }
 
-.search-btn {
+.search-btn,
+.close-btn {
   outline: none;
   background: none;
   border: none;
 }
 
+.close-btn {
+  position: absolute; 
+   top: 25%;
+  right: 4%;
+ cursor: pointer;
+ 
+}
 
-/* .container-images {
+
+
+.container-images {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-} */
+  margin-top: 20px;
+}
 
 #search-results {
     max-width: 1440px;  
   display: flex;
   flex-wrap: wrap;
   margin: 20px auto;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: flex-start;
-  gap: 20px;
+  /* gap: 20px; */
+   overflow: hidden;
 }
 
 .search-result {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     width: 23%;
-    height: 250px;
+    height: 280px;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -164,28 +148,86 @@ input:focus {
 
 .search-result img {
     width: 100%;
-    height: 100%;
+    height: 70%;
     object-fit: cover;
-    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
-    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    cursor: zoom-in;
 }
 
 .search-result:hover img {
     transform: scale(1.05);
-    opacity: .8;
+    opacity: .6;
 }
 
-.search-result a {
-    padding: 10px;
-    /* height: 20%; */
+#search-results a {
+    margin-top: 8px;   
+    height: 30%;
     display: block;
     color: white;
     text-decoration: none;
     transition: background-color 0.3s ease-in-out;
+    overflow: hidden;
+    font-size: 10px;
 }
 
-.search-result:hover a {
-    background-color: rgba(0, 0, 0, 0.1);
+#search-results a:hover {
+    opacity: 0.7;
+}
+
+.image-popup {
+  position: fixed;
+  top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+height: 80vh;
+width: 60%;
+background: whitesmoke;
+display: flex;
+justify-content: center;
+align-items:center;
+border-radius: 10px;
+border: 2px solid rgb(29, 174, 49);
+
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.download-btn {
+  text-transform: capitalize;
+  padding: 10px 20px;
+  background: rgb(29, 174, 49);
+  text-decoration: none;
+  border-radius: 10px;
+  color: aliceblue;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.close-btn-popup {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: none;
+}
+
+.download-btn:hover {
+   background: rgb(18, 63, 24);
+}
+
+.large-image {
+cursor: zoom-out;
+height: 100%;
+width: 100%;
+border-radius: 9px;
+object-fit: cover;
 }
 
 #show-more-button {
@@ -205,21 +247,20 @@ input:focus {
 #show-more-button:hover {
     background-color: rgb(18, 63, 24);
 }
+/* -----------footer--------------- */
 
 footer {
    width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  /* position: fixed;
-  bottom: 0; */
-  display: flex;
+  display: flex;  
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid black; 
   padding: 10px 100px; 
   color: rgb(30, 3, 53);
-  background: white;
-  /* background: rgb(81, 46, 81); */
+  background: rgb(135, 163, 245);
+ 
 }
 
 .footer__info {
@@ -234,11 +275,11 @@ footer a {
 }
 
 footer a:hover {
-    color: rgb(29, 174, 49);
+    color: rgb(18, 63, 24);
 }
 
 .footer-logo {
-  display: block;
+  display: block;   
   margin: 5px 0;
   width: 80px;
   height: 30px;
@@ -246,10 +287,12 @@ footer a:hover {
   background-size: contain;
   background-repeat: no-repeat;
   transition: filter 0.5s;
+  filter: invert(10%) sepia(67%) saturate(1222%) hue-rotate(240deg)
+    brightness(105%) contrast(107%);
 }
 
 .footer-logo:hover {
-  filter: invert(30%) sepia(67%) saturate(1222%) hue-rotate(100deg)
+  filter: invert(15%) sepia(67%) saturate(1222%) hue-rotate(100deg)
     brightness(105%) contrast(107%);
 }
 
@@ -277,9 +320,9 @@ footer a:hover {
     width: 95%;
   }
 
-  .img {
-    width: 100%;
-  }
+ .search-result a {
+  font-size: 10px;
+ }
 
   #header {
     margin: 10px 0;
@@ -289,10 +332,6 @@ footer a:hover {
 
   #header h2 {
     padding: 5px 0;
-  }
-
-  .search-result {
-    width: 45%;
   }
 }
 
@@ -310,8 +349,4 @@ footer a:hover {
   #search-form input {
     font-size: .7rem;
   }
-.search-result {
-    width: 100%;
-  }
-
 }
