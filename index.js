@@ -83,6 +83,7 @@ async function searchImages() {
   const url = `https://api.unsplash.com/search/photos?page=${page}&orientation=landscape&query=${inputData}&client_id=${KEY}`;
 
   const response = await fetch(url);
+ 
   const data = await response.json();
 
   if (page === 1) {
