@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/269d9d67d6.js"
+      crossorigin="anonymous"
+    ></script>
+   
+    <link rel="shortcut icon" type="image/png" href="photo.png" />
+    <title>Image Galery</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" type="images/x-icon" href="./img/photo-photography-image-picture_108525.ico"/>
+  </head>
+ <body>
+    <div class="wrapper">
+      <header>
+        <div class="container">
+          <div id="header">
+            <h2>
+              <i class="fas fa-camera" style="color: rgb(29, 174, 49)"></i>
+              Unsplash API
+            </h2>
+
+            <form class="search-form" id="search-form">
+              
+                
+                <input
+                  id="search-input"
+                  type="text"
+                  required
+                  autocomplete="off"
+                  autofocus
+                  placeholder="Search for images ..."
+                />
+             
+
+                <button type="submit" class="search-btn" id="search-btn">
+                  <i id="search" class="fas fa-search"></i>
+                </button>
+
+                <button class="close-btn hide"><img src="./img/close_btn.svg" alt="close-btn"></button>
+              </form>
+              <!-- </div> -->
+
+
+          </div>
+        </div>
+      </header>
+      <main>
+        <section>
+          <div class="container-images">
+            <div id="search-results">
+              <!-- <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="" class="random-img">
+       
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="" class="random-img">
+        
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="" class="random-img">
+       
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="" class="random-img"> -->
+          </div>
+
+          <div class="image-popup hide" title="Click to close">
+            <a href="#" class="download-btn">download image</a>
+            <button class="close-btn-popup"><img src="./img/close_btn.svg" alt="close-btn"></button>
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="" class="large-image">
+          </div>
+
+
+          <button id="show-more-button">Show more</button>
+          </div>
+         
+        </section>
+      </main>
+      <footer>
+       
+          <div class="footer-item">
+            <div class="footer__info">
+              <p>&copy; Evgeniia</p>
+              <a href="https://github.com/evgeniia-korolova" target="_blank"
+                ><i class="fa-brands fa-github "></i></a>
+            <p>2023</p>
+            </div>
+          </div>
+                    
+            <a class="footer-logo" href="https://rs.school/js-stage0/" title="Rolling Scopes School" target="_blank"></a>
+                               
+       
+        
+      </footer>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
