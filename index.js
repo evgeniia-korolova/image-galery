@@ -82,10 +82,8 @@ let page = 1;
 
 
 
-async function searchImages() {
- 
- 
-  try {
+async function searchImages() { 
+  
  inputData = searchInput.value;
  const url = `https://api.unsplash.com/search/photos?page=${page}&orientation=landscape&query=${inputData}&client_id=${KEY}`;
     const response = await fetch(url);
@@ -102,16 +100,11 @@ async function searchImages() {
         showMoreButton.style.display = 'block';
       }
     } else {
-      console.log('error');
+      // console.log(error.message + 'error');
+       alert('Images are not found');
     }
-  } catch (error) {
-    console.log(error.message + 'error');
-    // createAndAppendP(
-    //   'galery__text',
-    //   'Unfortunately, no images were found for your request. Try another query. К сожалению, по вашему запросу не было найдено изображений. Попробуйте другой запрос.'
-    // );
-  }
-}
+  
+   }
 
 // -------------
 
