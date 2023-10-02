@@ -247,6 +247,17 @@ object-fit: cover;
 #show-more-button:hover {
     background-color: rgb(18, 63, 24);
 }
+
+
+.galery__text {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  position: fixed;
+  font-size: 2rem;
+  padding: 3%;
+  color: #FFFFFF;
+}
 /* -----------footer--------------- */
 
 footer {

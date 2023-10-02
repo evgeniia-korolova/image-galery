@@ -11,6 +11,8 @@ const closeBtn = document.querySelector('.close-btn');
 
 // -----------get and show images on load the page------------------------------
 
+
+
 async function loadImages() {
   const urlTemp = `https://api.unsplash.com/search/photos?page=1&orientation=landscape&query=mountain&client_id=${KEY}`;
 
@@ -78,34 +80,44 @@ const showPopup = (item) => {
 let inputData = location.search.split('=').pop();
 let page = 1;
 
+
+
 async function searchImages() {
-  inputData = searchInput.value;
-  const url = `https://api.unsplash.com/search/photos?page=${page}&orientation=landscape&query=${inputData}&client_id=${KEY}`;
-
-  const response = await fetch(url);
  
-  const data = await response.json();
+ 
+  try {
+ inputData = searchInput.value;
+ const url = `https://api.unsplash.com/search/photos?page=${page}&orientation=landscape&query=${inputData}&client_id=${KEY}`;
+    const response = await fetch(url);
 
-  if (page === 1) {
-    searchResults.innerHTML = '';
-  }
-
-  const results = data.results;
-  showImages(results);
-
-  page++;
-
-  if (page > 1) {
-    showMoreButton.style.display = 'block';
+    if (response.ok) {
+      const data = await response.json();
+      if (page === 1) {
+        searchResults.innerHTML = '';
+      }
+      const results = data.results;
+      showImages(results);
+      page++;
+      if (page > 1) {
+        showMoreButton.style.display = 'block';
+      }
+    } else {
+      console.log('error');
+    }
+  } catch (error) {
+    console.log(error.message + 'error');
+    // createAndAppendP(
+    //   'galery__text',
+    //   'Unfortunately, no images were found for your request. Try another query. К сожалению, по вашему запросу не было найдено изображений. Попробуйте другой запрос.'
+    // );
   }
 }
 
 // -------------
-if (inputData == '') {
-  loadImages();
-} else {
-  searchImages();
-}
+
+
+
+window.addEventListener('load', loadImages);
 
 // ------------
 
